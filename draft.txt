@@ -1,0 +1,25 @@
+# docker genral
+docker -d ->start docker daemon
+docker -help
+docker -info
+
+#image manip
+docker images
+docker images prune -> remove unused images
+docker rmi 150df
+
+# container manip
+docker ps
+docker rm 150df
+docker start 150df|docker stop 150df
+
+docker run -p 8181:8181 openpolicyagent/opa --name opa-service d703a066f607
+
+docker-file
+
+# docker Compose
+docker-compose up|docker-compose down ->create
+docker-compose start||docker-compose stop ->run
+ports:
+    - "3000"
+    - "8000:80"  # host:container

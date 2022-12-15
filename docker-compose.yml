@@ -1,0 +1,34 @@
+version: '2'
+services:
+  opa:
+    image: openpolicyagent/opa:0.46.1-rootless
+    ports:
+      - 8181:8181
+    command:
+      - "run"
+      - "--server"
+      - "--log-format=json-pretty"
+      - "--set=decision_logs.console=true"
+      # - "--set=services.nginx.url=http://bundle_server"
+      # - "--set=services.nginx.service=nginx"
+      # - "--set=bundles.nginx.resrouce=bundles.tar.gz"
+    # depends_on:
+    #   - bundle_server
+  api_server:
+    image: users-api:0.3.0
+    ports:
+    - 5000:5000
+    environment:
+    - OPA_ADR=http://opa:8181
+    - POLICY_PATH=/v1/data/httpapi/authz
+    depends_on:
+    - opa
+  # bundle_server:
+  #   image: nginx:1.20.0-alpine
+  #   ports:
+  #   - 8888:80
+  #   volumes:
+  #   - ./bundles:/usr/share/nginx/html/bundles
+
+
+

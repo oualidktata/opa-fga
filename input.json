@@ -1,0 +1,7 @@
+{
+  "user": {
+    "type": "external",
+    "roles": ["delegate_user"],
+    "authorizedToUpdateEngineRecord": true
+  }
+}
