@@ -1,0 +1,13 @@
+{
+  "request":{
+    "user": {
+      "type": "external",
+      "roles": ["delegate_user"],
+      "authorizedToUpdateEngineRecord": true
+    },
+    "fleet":{
+      "fleetId":"Fl1234",
+      "isActive":false
+    }
+  }
+}

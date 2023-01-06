@@ -1,4 +1,4 @@
-package util.ads.user
+package pwc.util.user
 
 # helpers based on user.type
 is_internal {
@@ -14,8 +14,13 @@ is_super_user {
 }
 
 #helpers based on roles
-is_admin {
+is_admin=true if {
 	input.user.roles[_] == "admin"
+
+}
+
+is_createdByMe if{
+	data.fleets[input.request.fleet].Created==input.user.id
 }
 
 is_front_line {
@@ -25,6 +30,7 @@ is_front_line {
 is_general_user {
 	input.user.roles[_] == "general_user"
 }
+
 is_delegated_user {
 	input.user.roles[_] == "delegate_user"
 }

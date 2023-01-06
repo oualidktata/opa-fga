@@ -1,6 +1,6 @@
 package ads.can_upload_and_update_engine_record
 
-import data.util.ads.user
+import data.ads.util.user
 import future.keywords.if
 
 default allow = false

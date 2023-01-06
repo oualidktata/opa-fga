@@ -2,10 +2,8 @@ package ads.canReadFleet
 
 import data.ads.canReadFleet.allow
 
-import data.common.user_profiles
+import data.ads.common.user_profiles as up
 import future.keywords.if
-
-up := data.common.user_profiles
 
 # Rule 1: super users are allowed
 test_super_user_type_allowed if {

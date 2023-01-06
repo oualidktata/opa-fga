@@ -1,0 +1,10 @@
+{
+  "pwc": {
+    "view_all_tickets_roles": ["admin", "manager", "power_user"],
+    "view_own_tickets_roles": ["general_user", "front_line"]
+  },
+  "pwa": {
+    "view_all_tickets_roles": ["admin", "manager"],
+    "view_own_tickets_roles": ["general_user"]
+  }
+}

@@ -1,6 +1,6 @@
 package ads.canReadFleet
 
-import data.util.ads.user
+import data.ads.util.user
 import future.keywords.if
 
 default allow = false
@@ -15,6 +15,12 @@ allow if {
 	user.is_internal
 	user.is_admin
 }
+
+allow {
+	user.is_internal
+	user.is_createdByMe
+}
+
 
 # Rule 2: internal users with a role of manager are denied
 # canReadFleet=false {

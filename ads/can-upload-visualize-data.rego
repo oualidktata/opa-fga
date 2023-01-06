@@ -1,6 +1,6 @@
-package ads.can_upload_visualize_manual_data
+package ads.can_upload_data
 
-import data.util.ads.user
+import data.ads.util.user
 import future.keywords.if
 
 default allow = false

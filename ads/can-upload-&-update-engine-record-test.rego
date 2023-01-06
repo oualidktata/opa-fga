@@ -1,10 +1,9 @@
 package ads.can_upload_and_update_engine_record
 
 import data.ads.can_upload_and_update_engine_record.allow
-import data.common.user_profiles
+import data.ads.common.user_profiles as up
 import future.keywords.if
 
-up := data.common.user_profiles
 # Feature 6: todo: clarify difference with Feature 5
 # F5 and F6: are mixed since it's the same resource to protect
 # Rule 1: super users are allowed

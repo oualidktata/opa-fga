@@ -1,10 +1,8 @@
-package ads.can_upload_visualize_manual_data
+package ads.can_upload_data
 
-import data.ads.can_upload_visualize_manual_data.allow
-import data.common.user_profiles
+import data.ads.can_upload_data.allow
+import data.ads.common.user_profiles as up
 import future.keywords.if
-
-up := data.common.user_profiles
 
 # Rule 1: super users are allowed
 test_super_user_type_allowed if {
