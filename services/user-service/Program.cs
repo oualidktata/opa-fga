@@ -1,9 +1,22 @@
+using Mapster;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using Redis.OM;
+using Redis.OM.Contracts;
+using Redis.OM.Modeling;
 using StackExchange.Redis;
+using user_service.Auth.OptionsSetup;
+using user_service.Handlers;
+using user_service.HostedServices;
+using user_service.OptionsSetup;
+using user_service_core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -14,30 +27,29 @@ builder.Services.AddSwaggerGen();
 //      options.Configuration = "127.0.0.1:6379"; // redis is the container name of the redis service. 6379 is the default port
 //      options.InstanceName = "SampleInstance";
 //   });
+//TypeAdapterConfig<AddUserCommandHandler.AddUserCommand, UserDTO>.NewConfig()
+//    .Ignore(dest => dest.Id)
+//    .Compile();
+builder.Services.AddMediatR(typeof(Program).Assembly);
+//builder.Services.AddTransient<IRequestHandler<AddUserCommandHandler.AddUserCommand, AddUserCommandHandler.AddUserResponse>, AddUserCommandHandler>();
 
-
-builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
-ConnectionMultiplexer.Connect(new ConfigurationOptions
-{
-    EndPoints = { "redis:6379" },
-    Ssl = false,
-    //ResolveDns = true
-}));
+builder.Services.AddHostedService<IndexCreationService>();
+builder.Services.AddSingleton(new RedisConnectionProvider(builder.Configuration.GetConnectionString("Redis-Stack")));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddCookie("cookie")
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters.RoleClaimType = "role";
-        options.TokenValidationParameters.NameClaimType = "name";
-    });
+    // .AddCookie("cookie")
+    .AddJwtBearer();
+//Clean by extracting Jwtoptions and jwtBearersetup
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("Jwt"));
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
 
 builder.Services.AddAuthorizationBuilder()
-    .AddPolicy("can-read-fleet", policy =>
+    .AddPolicy("can-list-users", policy =>
     policy
     .RequireAuthenticatedUser()
     .RequireRole("admin")
-    .RequireClaim("greeting_api"));
+    .RequireClaim("user-api"));
 
 //builder.Services.AddAuthorizationBuilder()
 //    .AddPolicy("admin_greetings",PolicyServiceCollect)

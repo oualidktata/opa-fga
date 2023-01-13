@@ -1,0 +1,12 @@
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\bin\Debug\net7.0\user-service-core.deps.json
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\bin\Debug\net7.0\user-service-core.dll
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\bin\Debug\net7.0\user-service-core.pdb
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.csproj.AssemblyReference.cache
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.GeneratedMSBuildEditorConfig.editorconfig
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.AssemblyInfoInputs.cache
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.AssemblyInfo.cs
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.csproj.CoreCompileInputs.cache
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.dll
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\refint\user-service-core.dll
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\user-service-core.pdb
+E:\git_repos\Sandbox\mono-repo-user-management\auth-service-poc\services\user-service\user-service-core\obj\Debug\net7.0\ref\user-service-core.dll

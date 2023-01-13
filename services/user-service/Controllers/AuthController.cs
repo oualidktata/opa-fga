@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
+using user_service.Auth;
 
 namespace users_api.Controllers
 {
@@ -14,11 +15,13 @@ namespace users_api.Controllers
         "Fleet1", "Fleet2", "Fleet3", "Fleet4", "Fleet5"
     };
 
-        private readonly ILogger<FleetController> _logger;
+        private readonly ILogger<AuthController> _logger;
+        private readonly ICustomAuthenticationManager _authenticationManager;
 
-        public AuthController(ILogger<FleetController> logger)
+        public AuthController(ILogger<AuthController> logger,ICustomAuthenticationManager authenticationManager)
         {
             _logger = logger;
+            _authenticationManager = authenticationManager;
         }
 
         [HttpGet(Name = "GetClaims")]
@@ -30,6 +33,12 @@ namespace users_api.Controllers
             return (IEnumerable<Claim>)Ok(claims);
         }
 
+        [HttpPost()]
+        public IActionResult Authenticate() {
+            var token=_authenticationManager.Authenticate("oualid");
+            return Ok(token);
+        }
+        
         [HttpGet(Name = "login")]
         public IResult login()
         {

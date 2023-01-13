@@ -7,8 +7,9 @@
       "composeLaunchServiceName": "user-service",
       "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
       "serviceActions": {
-        "redis": "StartWithoutDebugging",
-        "user-service": "StartDebugging"
+        "redis-cache": "StartWithoutDebugging",
+        "user-service": "StartDebugging",
+        "redis-stack": "StartWithoutDebugging"
       }
     }
   }
